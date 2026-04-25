@@ -1,0 +1,16 @@
+┌──────────────────────┐
+│ GitHub Actions cron  │  every 15 min
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐    ┌─────────────────┐
+│ pricepulse.py        │───►│ Yahoo Finance   │
+│  • load alerts.yaml  │    │ CoinGecko       │
+│  • fetch prices      │    └─────────────────┘
+│  • diff vs state     │
+│  • send notifications│
+└──────────┬───────────┘
+           │
+   ┌───────┴────────┐
+   ▼                ▼
+Telegram        Discord
