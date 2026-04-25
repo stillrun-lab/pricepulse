@@ -76,3 +76,7 @@ alerts:
     value: 90000
 
 >>>>>>> 2d76f23cafd117ac4b941218697785c98c7eacab
+
+## Live deployment
+
+<img width="1866" height="459" alt="workflow-run" src="https://github.com/user-attachments/assets/967ddc60-e91b-4531-b31d-d28bf7a3f648" />
