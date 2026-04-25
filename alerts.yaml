@@ -39,9 +39,9 @@ Built by Stillrun Lab — automation systems built to run themselves.
 # the matching entry from state/fired.json.
 alerts:
   - symbol: AAPL
-    kind: stock
-    rule: above
-    value: 250.00
+  kind: stock
+  rule: above
+  value: 100.00
   - symbol: TSLA
     kind: stock
     rule: below
