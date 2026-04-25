@@ -2,7 +2,7 @@ alerts:
   - symbol: AAPL
     kind: stock
     rule: above
-    value: 100.00
+    value: 250.00
 
   - symbol: TSLA
     kind: stock
