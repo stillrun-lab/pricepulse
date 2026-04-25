@@ -1,0 +1,47 @@
+name: Pricepulse — alert check
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pricepulse-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pricepulse
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python pricepulse.py
+
+      - name: Persist alert state
+        run: |
+          git config user.name "pricepulse-bot"
+          git config user.email "pricepulse@users.noreply.github.com"
+          if [ -f state/fired.json ]; then
+            git add -f state/fired.json
+            if ! git diff --staged --quiet; then
+              git commit -m "state: update fired alerts"
+              git push
+            fi
+          fi
