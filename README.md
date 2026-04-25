@@ -5,6 +5,8 @@ Configurable price-alert bot. Watches stocks and crypto, fires notifications
 to Telegram and Discord when price thresholds are crossed. Deploys on GitHub
 Actions cron — no server, no recurring infrastructure.
 
+<img width="1054" height="295" alt="telegram proof" src="https://github.com/user-attachments/assets/a225009d-b7c9-46b7-9a13-084a0246b39f" />
+
 ## What it does
 
 Reads a list of price-watch rules from `alerts.yaml`, polls live prices
