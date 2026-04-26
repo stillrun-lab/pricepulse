@@ -1,6 +1,5 @@
 # Pricepulse
 
-<<<<<<< HEAD
 Configurable price-alert bot. Watches stocks and crypto, fires notifications
 to Telegram and Discord when price thresholds are crossed. Deploys on GitHub
 Actions cron — no server, no recurring infrastructure.
